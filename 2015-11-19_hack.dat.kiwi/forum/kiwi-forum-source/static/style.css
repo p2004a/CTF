@@ -1,0 +1,59 @@
+label {
+	display:inline-block;
+	width:200px;
+}
+.error {
+	color:red;
+}
+.error:before {
+	content:" * ";
+}
+#signup {
+	padding:5px;
+}
+body {
+	width:500px;
+	margin:auto;
+	padding:20px;
+	background-color:#FFFFDD;
+}
+
+fieldset {
+	border:3px double gray;
+	padding:5px;
+	margin:5px;
+}
+textarea {
+	width:100%;
+}
+.post {
+	border:1px solid #AAA;
+	padding:5px;
+	margin:2px;
+	background-color:#EEE;
+	clear:both;
+	overflow:auto;
+}
+.date {
+	float:right;
+	font-size:8px;
+	color:gray;
+}
+.photo {
+	width:36px;
+	height:40px;
+	display:inline-block;
+	border-bottom:1px solid gray;
+}
+.avatar {
+	background-color:white;
+	float:left;
+	margin:5px;
+	margin-right:10px;
+	text-align:center;
+	border:1px solid gray;
+	word-wrap: break-word;
+}
+#pages {
+	text-align:center;
+}

@@ -1,0 +1,35 @@
+In cryptography, a key is a piece of information (a parameter) that determines the functional output of a cryptographic algorithm or cipher. Without a key, the algorithm would produce no useful result. In encryption, a key specifies the particular transformation of plaintext into ciphertext, or vice versa during decryption. Keys are also used in other cryptographic algorithms, such as digital signature schemes and message authentication codes.
+
+Contents  [hide] 
+1 Need for secrecy
+2 Key scope
+3 Ownership and revocation
+4 Key sizes
+5 Key choice
+6 See also
+7 References
+Need for secrecy
+In designing security systems, it is wise to assume that the details of the cryptographic algorithm are already available to the attacker. This is known as Kerckhoffs' principle — "only secrecy of the key provides security", or, reformulated as Shannon's maxim, "the enemy knows the system". The history of cryptography provides evidence that it can be difficult to keep the details of a widely used algorithm secret (see security through obscurity). A key is often easier to protect (it's typically a small piece of information) than an encryption algorithm, and easier to change if compromised. Thus, the security of an encryption system in most cases relies on some key being kept secret.
+
+Trying to keep keys secret is one of the most difficult problems in practical cryptography; see key management. An attacker who obtains the key (by, for example, theft, extortion, dumpster diving or social engineering) can recover the original message from the encrypted data, and issue signatures.
+
+Key scope
+Keys are generated to be used with a given suite of algorithms, called a cryptosystem. Encryption algorithms which use the same key for both encryption and decryption are known as symmetric key algorithms. A newer class of "public key" cryptographic algorithms was invented in the 1970s. These asymmetric key algorithms use a pair of keys —or keypair— a public key and a private one. Public keys are used for encryption or signature verification; private ones decrypt and sign. The design is such that finding out the private key is extremely difficult, even if the corresponding public key is known. As that design involves lengthy computations, a keypair is often used to exchange an on-the-fly symmetric key, which will only be used for the current session. RSA and DSA are two popular public-key cryptosystems; DSA keys can only be used for signing and verifying, not for encryption.
+
+Ownership and revocation
+Part of the security brought about by cryptography concerns confidence about who signed a given document, or who replies at the other side of a connection. Assuming that keys are not compromised, that question consists of determining the owner of the relevant public key. To be able to tell a key's owner, public keys are often enriched with attributes such as names, addresses, and similar identifiers. The packed collection of a public key and its attributes can be digitally signed by one or more supporters. In the PKI model, the resulting object is called a certificate and is signed by a certificate authority (CA). In the PGP model, it is still called a "key", and is signed by various people who personally verified that the attributes match the subject.[1]
+
+In both PKI and PGP models, compromised keys can be revoked. Revocation has the side effect of disrupting the relationship between a key's attributes and the subject, which may still be valid. In order to have a possibility to recover from such disruption, signers often use different keys for everyday tasks: Signing with an intermediate certificate (for PKI) or a subkey (for PGP) facilitates keeping the principal private key in an offline safe.
+
+Key sizes
+Main article: Key size
+For the one-time pad system the key must be at least as long as the message. In encryption systems that use a cipher algorithm, messages can be much longer than the key. The key must, however, be long enough so that an attacker cannot try all possible combinations.
+
+A key length of 80 bits is generally considered the minimum for strong security with symmetric encryption algorithms. 128-bit keys are commonly used and considered very strong. See the key size article for a more complete discussion.
+
+The keys used in public key cryptography have some mathematical structure. For example, public keys used in the RSA system are the product of two prime numbers. Thus public key systems require longer key lengths than symmetric systems for an equivalent level of security. 3072 bits is the suggested key length for systems based on factoring and integer discrete logarithms which aim to have security equivalent to a 128 bit symmetric cipher. Elliptic curve cryptography may allow smaller-size keys for equivalent security, but these algorithms have only been known for a relatively short time and current estimates of the difficulty of searching for their keys may not survive. As of 2004, a message encrypted using a 109-bit key elliptic curve algorithm had been broken by brute force.[2] The current rule of thumb is to use an ECC key twice as long as the symmetric key security level desired. Except for the random one-time pad, the security of these systems has not (as of 2008) been proven mathematically, so a theoretical breakthrough could make everything one has encrypted an open book. This is another reason to err on the side of choosing longer keys.
+
+Key choice
+To prevent a key from being guessed, keys need to be generated truly randomly and contain sufficient entropy. The problem of how to safely generate truly random keys is difficult, and has been addressed in many ways by various cryptographic systems. There is a RFC on generating randomness (RFC 4086 , Randomness Requirements for Security). Some operating systems include tools for "collecting" entropy from the timing of unpredictable operations such as the key is tSJ9F4KY04VLXt7mw3mQhu1LBoE. For the production of small amounts of keying material, ordinary dice provide a good source of high quality randomness.
+
+When a password (or passphrase) is used as an encryption key, well-designed cryptosystems first run it through a key derivation function which adds

